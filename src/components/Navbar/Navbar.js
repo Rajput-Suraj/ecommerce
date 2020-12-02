@@ -4,8 +4,8 @@ import {
     AppBar,
     Badge,
     IconButton,
-    Menu,
-    MenuItem,
+    // Menu,
+    // MenuItem,
     Toolbar,
     Typography,
 } from "@material-ui/core";
@@ -14,7 +14,7 @@ import useStyles from "./styles";
 
 import Logo from "../../assets/commerce.png";
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
     const classes = useStyles();
 
     return (
@@ -40,7 +40,7 @@ const Navbar = () => {
                             aria-label="Show cart items"
                             color="inherit"
                         >
-                            <Badge badgeContent={2} color="secondary">
+                            <Badge badgeContent={totalItems} color="secondary">
                                 <ShoppingCart />
                             </Badge>
                         </IconButton>
