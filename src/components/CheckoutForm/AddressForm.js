@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import {
     Button,
     Grid,
@@ -13,7 +13,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import FormInput from "./CustomTextField";
 import { commerce } from "../../lib/commerce";
 
-const AddressForm = ({ token }) => {
+const AddressForm = ({ token, next }) => {
     const [shippingCountries, setShippingCountries] = useState([]);
     const [shippingCountry, setShippingCountry] = useState("");
     const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -94,7 +94,16 @@ const AddressForm = ({ token }) => {
                 Shipping Address
             </Typography>
             <FormProvider {...methods}>
-                <form>
+                <form
+                    onSubmit={methods.handleSubmit((data) =>
+                        next({
+                            ...data,
+                            shippingCountry,
+                            shippingSubdivision,
+                            shippingOption,
+                        })
+                    )}
+                >
                     <Grid container spacing={3}>
                         <FormInput name="firstName" label="First name" />
                         <FormInput name="lastName" label="Last name" />
@@ -157,6 +166,29 @@ const AddressForm = ({ token }) => {
                             </Select>
                         </Grid>
                     </Grid>
+                    <br />
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                        }}
+                    >
+                        <Button
+                            variant="contained"
+                            component={Link}
+                            to="/cart"
+                            color="secondary"
+                        >
+                            Back to Cart
+                        </Button>
+                        <Button
+                            variant="contained"
+                            type="submit"
+                            color="primary"
+                        >
+                            Next
+                        </Button>
+                    </div>
                 </form>
             </FormProvider>
         </>
