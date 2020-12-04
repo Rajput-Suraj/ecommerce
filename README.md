@@ -7,7 +7,7 @@ This is a code repository for the e-commerce store.
 In this repo, we've build a fully functional eCommerce application using React.js, Commerce.js. 
 
 ### Step 1
-Download Zip or Clone this repo.
+Download Zip or Clone this repo by clicking on green color button you can see Download Zip/SSH/HTTPS/GitHub CLI.
 
 ### Step 2
 After downloading or cloning this repo, open the project in any local code editor of your choice and run "npm install" using terminal/command prompt to install the necessary packages required to run the project.
